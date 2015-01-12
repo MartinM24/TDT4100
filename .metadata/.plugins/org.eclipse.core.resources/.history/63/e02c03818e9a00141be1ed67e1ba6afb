@@ -1,0 +1,22 @@
+package account;
+
+public class Account {
+	private double balance;
+	private double interestRate;
+	
+	public void deposit(double dep){
+		if (dep < 0){
+			throw new IllegalArgumentException();
+		}
+		balance+=dep;
+	}
+	
+	public void addInterest(){
+		balance+=interestRate*balance;
+	}
+	
+	public Account(double balance,double rate){
+		this.balance = balance;
+		interestRate = rate;
+	}
+}
