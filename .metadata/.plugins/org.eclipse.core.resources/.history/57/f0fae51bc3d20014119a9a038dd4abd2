@@ -1,0 +1,44 @@
+package patterns.observable;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+public class HighscoreList {
+	
+	int maxSize;
+	List<Integer> results;
+
+	public HighscoreList(int i) {
+		if(i <= 0){
+			throw new IllegalArgumentException();
+		}
+		maxSize = i;
+		results = new ArrayList<Integer>();
+	}
+	
+	public int size(){
+		return results.size();
+	}
+	
+	public int getElement(int i){
+		return results.get(i);
+	}
+
+	public void addResult(int n){
+		for(int i = 0 ; i < results.size();i++){
+			if(getElement(i)<n){
+				results.add(i, n);
+				if(size()>maxSize){
+					results.remove(size()-1);
+				}
+			}
+		}
+	}
+
+	public void addHighscoreListListener(HighscoreListListener _function) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

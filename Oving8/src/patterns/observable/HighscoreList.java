@@ -1,0 +1,88 @@
+package patterns.observable;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+public class HighscoreList {
+	
+	int maxSize;
+	List<Integer> results;
+	Collection<HighscoreListListener> listeners;
+
+	public HighscoreList(int i) {
+		if(i <= 0){
+			throw new IllegalArgumentException();
+		}
+		maxSize = i;
+		results = new ArrayList<Integer>();
+		listeners = new ArrayList<>();
+	}
+	
+	public int size(){
+		return results.size();
+	}
+	
+	public int getElement(int i){
+		return results.get(i);
+	}
+
+	public void addResult(int n){
+		System.out.println("\n addResult("+n+")");
+		for(int i = 0 ; i < size();i++){
+			if(getElement(i)>n){
+				results.add(i, n);
+				if(size()>maxSize){
+					results.remove(size()-1);
+				}
+				fireListeners(i);
+				return;
+			}
+		}
+		
+		if(size()<maxSize){
+			results.add(n);
+			fireListeners(size()-1);
+		}
+	}
+
+	public void addHighscoreListListener(HighscoreListListener _function) {
+		listeners.add(_function);
+		
+	}
+	
+	public void removeHighscoreListListener(HighscoreListListener _function) {
+		listeners.remove(_function);
+		
+	}
+	
+	
+	private void fireListeners(int i){
+		for(HighscoreListListener l : listeners){
+			l.listChanged(this, i);
+		}
+	}
+	
+	public String toString(){
+		String rStr = "";
+		for(Integer i : results){
+			rStr+=i+",";
+		}
+		return rStr;
+	}
+	
+	public static void main(String[] args) {
+		HighscoreList test = new HighscoreList(3);
+		test.addResult(5); 
+		System.out.println(test);
+		test.addResult(6); 
+		System.out.println(test);
+		test.addResult(2); 
+		System.out.println(test);
+		test.addResult(3); 
+		System.out.println(test);
+		test.addResult(7);
+		System.out.println(test);
+	}
+	
+}

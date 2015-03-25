@@ -1,0 +1,39 @@
+package test;
+
+public class Test {
+	private int counter;
+	private boolean hasShifted;
+	
+	
+	public Test(int counter){
+		this.counter = counter;
+		this.hasShifted = false;
+	}
+	
+	private void increase(){
+		if (hasShifted){
+			counter-=1
+		}
+		else{
+			counter+=1;
+			if (counter > 10){
+				hasShifted = true;
+			}
+		}
+	}
+	
+	public void run(){
+		for (int i = 0 ; i < 25 ; i++){
+			increase();
+			System.out.println(counter);
+		}
+	}
+	
+	
+	public static void main(String[] args) {
+		test = new Test(4);
+		test.run()
+	}
+}
+
+

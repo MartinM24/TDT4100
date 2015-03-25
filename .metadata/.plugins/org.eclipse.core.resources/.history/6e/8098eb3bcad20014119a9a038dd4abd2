@@ -1,0 +1,28 @@
+package patterns.observable;
+
+import java.util.Scanner;
+
+public class HighscoreListProgram implements HighscoreListListener{
+
+	HighscoreList score;
+	
+	public void init(){
+		score = new HighscoreList(5);
+	}
+	
+	public void run(){
+		Scanner sc = new Scanner(System.in);
+		int res;
+		do{
+			res = sc.nextInt();
+			
+		}while(res!=-1);
+		sc.close();
+	}
+	
+	@Override
+	public void listChanged(HighscoreList scoreList, int i) {
+		System.out.println(scoreList);
+		System.out.println(i);
+	}
+}

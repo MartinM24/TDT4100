@@ -1,0 +1,10 @@
+package patterns.observable;
+
+public class HighscoreListProgram implements HighscoreListListener{
+
+	@Override
+	public void listChanged(HighscoreList scoreList, int i) {
+		System.out.println(scoreList);
+		System.out.println(i);
+	}
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="HighscoreListTest" project="Oving8" tests="7" started="7" failures="0" errors="0" ignored="0">
+  <testsuite name="patterns.observable.HighscoreListTest" time="0.0">
+    <testcase name="testConstructor" classname="patterns.observable.HighscoreListTest" time="0.0"/>
+    <testcase name="testListListenerMoreThanMax" classname="patterns.observable.HighscoreListTest" time="0.0"/>
+    <testcase name="testAddElementSimple" classname="patterns.observable.HighscoreListTest" time="0.0"/>
+    <testcase name="testAddElementDuplicate" classname="patterns.observable.HighscoreListTest" time="0.0"/>
+    <testcase name="testListListenerSimple" classname="patterns.observable.HighscoreListTest" time="0.0"/>
+    <testcase name="testListListenerDuplicate" classname="patterns.observable.HighscoreListTest" time="0.0"/>
+    <testcase name="testAddElementMoreThanMax" classname="patterns.observable.HighscoreListTest" time="0.0"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,27 @@
+@startuml
+Object "U1:User" as U1
+Object "U2:User" as U2
+Object "U3:User" as U3
+Object "M1:Meeting" as M1
+Object "I1:Invite" as I1
+Object "I2:Invite" as I2
+Object "I3:Invite" as I3
+Object "M2:Meeting" as M2
+M1 : name=Generelt møte
+M1 : Owner=U4
+M1 : Participant=null
+I1 ..> U1 : SendInvite
+I2 ..> U2 : SendInvite
+I3 ..> U3 : SendInvite
+M1 ..> I1 : CreateInvite
+M1 ..> I2 : CreateInvite
+M1 ..> I3 : CreateInvite
+U1 ..> M2 : Decline
+U2 ..> M2 : Accept
+U3 ..> M2 : Accept
+
+M2 : name=Generelt møte
+M2 : owner=U4
+M2 : participants = U2,U3
+
+@enduml

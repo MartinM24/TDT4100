@@ -1,0 +1,14 @@
+@startuml
+Object "R1:Room" as R1
+R1 : reservation = (7:00-9:45) , (12:15-14:00)
+
+Object "M1:Meeting" as M1
+M1 : name=Review-Møte
+M1 : owner=U1
+M1 : time=10:45-11:30
+
+Object "R2:Room" as R2
+M1 ..> R1 : ReserveRoom
+R1 ..> R2 : AddReservation
+R2 : reservation = (7:00-9:45) , (10:45-11:30) , (12:15-14:00)
+@enduml
